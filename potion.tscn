@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://bfv0eb4oyktpv"]
+
+[ext_resource type="Texture2D" uid="uid://cmxc2gufe72a0" path="res://All Potions/blue_potion.png" id="1_b7au7"]
+[ext_resource type="Script" path="res://potion.gd" id="1_plkh3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xsiq"]
+atlas = ExtResource("1_b7au7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqgjk"]
+atlas = ExtResource("1_b7au7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00dtk"]
+atlas = ExtResource("1_b7au7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyoso"]
+atlas = ExtResource("1_b7au7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egb6b"]
+atlas = ExtResource("1_b7au7")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_com0y"]
+atlas = ExtResource("1_b7au7")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyhuf"]
+atlas = ExtResource("1_b7au7")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wbsg"]
+atlas = ExtResource("1_b7au7")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s41jr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xsiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqgjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00dtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyoso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egb6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_com0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyhuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wbsg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1y7dr"]
+radius = 9.0
+
+[node name="Potion" type="Area2D"]
+collision_layer = 4
+monitorable = false
+script = ExtResource("1_plkh3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s41jr")
+autoplay = "default"
+frame_progress = 0.735462
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1y7dr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
