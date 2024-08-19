@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://g1cm4dk2k0s6"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://g1cm4dk2k0s6"]
 
 [ext_resource type="Texture2D" uid="uid://bae2i8bed5mu7" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_5i3ga"]
 [ext_resource type="PackedScene" uid="uid://bfv0eb4oyktpv" path="res://potion.tscn" id="2_csyyy"]
 [ext_resource type="PackedScene" uid="uid://rrax5q88trpu" path="res://gem.tscn" id="3_gg1ea"]
+[ext_resource type="PackedScene" uid="uid://cvcqphbax6rhp" path="res://yellow_potion.tscn" id="4_fkswm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8f5m"]
 texture = ExtResource("1_5i3ga")
@@ -226,7 +227,9 @@ texture = ExtResource("1_5i3ga")
 0:10/0 = 0
 1:10/0 = 0
 2:10/0 = 0
+2:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:10/0 = 0
+3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:10/0 = 0
 5:10/0 = 0
 6:10/0 = 0
@@ -249,7 +252,9 @@ texture = ExtResource("1_5i3ga")
 0:11/0 = 0
 1:11/0 = 0
 2:11/0 = 0
+2:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:11/0 = 0
+3:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:11/0 = 0
 5:11/0 = 0
 6:11/0 = 0
@@ -495,6 +500,7 @@ texture = ExtResource("1_5i3ga")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_fod84"]
 scenes/1/scene = ExtResource("2_csyyy")
 scenes/2/scene = ExtResource("3_gg1ea")
+scenes/3/scene = ExtResource("4_fkswm")
 
 [resource]
 physics_layer_0/collision_layer = 2
