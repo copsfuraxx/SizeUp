@@ -1,0 +1,14 @@
+keys,fr,en
+WIN_TEXT,Vous avez gagnez !!!,You won !!!
+PLAY,Jouer,Play
+TUTO,Tutoriel,Tutorial
+PARAM,Paramètres,Parameters
+CREDITS,Crédits,Credits
+MUSIC,Volume de la Musique,Music volume
+DISABLE,Désactiver : ,Disabled : 
+MENU_RETURN,Retourner au menu,Return to menu
+RETRY,Recommencer,Retry
+CLICK_NEXT,Appuyer sur une touche pour continuer,Press any key to continue
+TUTO1,"Votre personnage est maudit. Toutes les secondes, il grandit, jusqu'à en mourir.\nLa barre au-dessus vous permet de suivre l'évolution de votre taille.\nAppuyer sur {space} pour sauter.\nAppuyer sur {a} pour aller à gauche.\nAppuyer sur {d} pour aller à droite.\nAppuyer sur {echap} pour ouvrir/fermer le menu pause.\nPour gagner, vous devrez récupérer la gemme verte","Your character is cursed. Every second, it grows until it dies.\nThe bar above allows you to track your height.\nPress {space} to jump.\nPress {a} to go left.\nPress {d} to go right.\nPress {echap} to open/close the pause menu.\nTo win, you will need to collect the green gem"
+TUTO2,"Il arrivera que parfois, il vous sera impossible de récupérer la gemme, car vous serez trop grand.\nQuand cela arrive, chercher la potion bleue","Sometimes it will be impossible for you to recover the gem because you will be too big.\nWhen this happens, look for the blue potion"
+TUTO_END,"Il reste d'autres mécaniques, mais ce sera à vous de les découvrir.\nBonne chance et amusez-vous !!!","There are other mechanics remaining, but it will be up to you to discover them.\nGood luck and have fun !!!"

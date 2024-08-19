@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://xpqwcyx42dvk"]
+
+[ext_resource type="Theme" uid="uid://cwd5warj7yjkx" path="res://theme.tres" id="1_5uj6q"]
+[ext_resource type="Texture2D" uid="uid://dfs31wo1ykoce" path="res://Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="2_aueqi"]
+[ext_resource type="Script" path="res://gui.gd" id="2_u4qg1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kecy3"]
+atlas = ExtResource("2_aueqi")
+region = Rect2(308, 54, 56, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gu5p"]
+atlas = ExtResource("2_aueqi")
+region = Rect2(307, 21, 58, 6)
+
+[node name="GUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5uj6q")
+script = ExtResource("2_u4qg1")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.258
+anchor_right = 0.742
+offset_top = 38.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 0.5
+max_value = 5.0
+step = 0.1
+value = 1.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_kecy3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.75
+offset_top = 25.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_3gu5p")
+
+[node name="WinScreen" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="WinScreen"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WinScreen/CenterContainer"]
+layout_mode = 2
+text = "WIN_TEXT"
+
+[node name="PauseScreen" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseScreen"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Play" type="Button" parent="PauseScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "PLAY"
+
+[node name="Retry" type="Button" parent="PauseScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "RETRY"
+
+[node name="Menu" type="Button" parent="PauseScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "MENU_RETURN"
+
+[connection signal="pressed" from="PauseScreen/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="PauseScreen/CenterContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="PauseScreen/CenterContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

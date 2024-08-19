@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://5e1ookcth5pa"]
+
+[ext_resource type="PackedScene" uid="uid://b0io7n5ovan0p" path="res://player.tscn" id="1_5vakj"]
+[ext_resource type="PackedScene" uid="uid://c74ljjsfj0x2c" path="res://niveau1.tscn" id="1_k76t2"]
+[ext_resource type="PackedScene" uid="uid://xpqwcyx42dvk" path="res://gui.tscn" id="3_u6cyp"]
+[ext_resource type="Script" path="res://game_handler.gd" id="4_q8jg6"]
+[ext_resource type="PackedScene" uid="uid://cnqwqu2nwcda6" path="res://parallax_background.tscn" id="5_rx3km"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ivr0h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_35lwp"]
+normal = Vector2(0, 1)
+
+[node name="Test" type="Node2D"]
+
+[node name="WorldBound" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBound"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_ivr0h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBound"]
+position = Vector2(2402, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_35lwp")
+
+[node name="TileMap" parent="." instance=ExtResource("1_k76t2")]
+
+[node name="Player" parent="." instance=ExtResource("1_5vakj")]
+position = Vector2(22, 558)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+process_callback = 0
+limit_left = 0
+limit_bottom = 630
+position_smoothing_enabled = true
+
+[node name="GameHandler" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("4_q8jg6")
+
+[node name="Timer" type="Timer" parent="GameHandler"]
+process_mode = 1
+wait_time = 2.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource("3_u6cyp")]
+
+[node name="ParallaxBackground" parent="CanvasLayer" instance=ExtResource("5_rx3km")]
+
+[connection signal="timeout" from="GameHandler/Timer" to="GameHandler" method="_on_timer_timeout"]

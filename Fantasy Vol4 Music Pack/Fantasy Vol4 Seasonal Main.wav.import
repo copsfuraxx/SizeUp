@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://df2h44nxq3bpn"
+path="res://.godot/imported/Fantasy Vol4 Seasonal Main.wav-b874f09facdaa8349035a71a6aa70244.sample"
+
+[deps]
+
+source_file="res://Fantasy Vol4 Music Pack/Fantasy Vol4 Seasonal Main.wav"
+dest_files=["res://.godot/imported/Fantasy Vol4 Seasonal Main.wav-b874f09facdaa8349035a71a6aa70244.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
