@@ -1,0 +1,79 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cwd5warj7yjkx"]
+
+[ext_resource type="FontFile" uid="uid://cotv10gik4mmr" path="res://assets/monogram/ttf/monogram-extended.ttf" id="1_5d2uc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7ii4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hcbm"]
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4k23"]
+bg_color = Color(0.952941, 0.815686, 0.611765, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2sa6"]
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dq36c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_atotd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3bdn"]
+
+[resource]
+default_font = ExtResource("1_5d2uc")
+default_font_size = 32
+Button/colors/font_color = Color(0.145098, 0.117647, 0.243137, 1)
+Button/colors/font_focus_color = Color(0.145098, 0.117647, 0.243137, 1)
+Button/font_sizes/font_size = 64
+Button/styles/focus = SubResource("StyleBoxFlat_o7ii4")
+Button/styles/hover = SubResource("StyleBoxFlat_4hcbm")
+Button/styles/normal = SubResource("StyleBoxFlat_h4k23")
+Button/styles/pressed = SubResource("StyleBoxFlat_v2sa6")
+CheckButton/styles/focus = SubResource("StyleBoxFlat_o7ii4")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_dq36c")
+CheckButton/styles/hover_pressed = null
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_atotd")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_e3bdn")

@@ -1,0 +1,20 @@
+name: Linter
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup godot-gdscript-toolkit
+        run: pip3 install "gdtoolkit==4.*"
+
+      - name: Run the linter
+        run: gdlint *.gd

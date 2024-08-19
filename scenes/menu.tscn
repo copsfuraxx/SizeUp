@@ -1,0 +1,152 @@
+[gd_scene load_steps=4 format=3 uid="uid://batsqsb2yqahh"]
+
+[ext_resource type="Theme" uid="uid://cwd5warj7yjkx" path="res://theme.tres" id="1_anbgi"]
+[ext_resource type="Script" path="res://scripts/ui/menu.gd" id="2_ujuur"]
+[ext_resource type="Texture2D" uid="uid://c5hh6ln3hlwpr" path="res://assets/parallax_mountain_pack/all-bg.png" id="3_if6n1"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_anbgi")
+script = ExtResource("2_ujuur")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_if6n1")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Menu" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="PlayButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "PLAY"
+
+[node name="TutorialButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "TUTO"
+
+[node name="ParametersButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "PARAM"
+
+[node name="CreditsButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "CREDITS"
+
+[node name="Parameters" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Parameters"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Parameters/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Parameters/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Parameters/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Parameters/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "MUSIC"
+
+[node name="MusicSlider" type="HSlider" parent="Parameters/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="Parameters/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "DISABLE"
+
+[node name="MusicCheckBox" type="CheckButton" parent="Parameters/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Return" type="Button" parent="Parameters/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "MENU_RETURN"
+
+[node name="Credits" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/PanelContainer/MarginContainer/VBoxContainer"]
+auto_translate_mode = 2
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][url=https://ansimuz.itch.io/mountain-dusk-parallax-background]Mountain Dusk Parallax background[/url] by ansimuz[/center]
+[center][url=https://megacrash.itch.io/keyboard-pixel-art]Keyboard - Pixel Art[/url] by MegaCrash[/center]
+[center][url=https://its-lerm.itch.io/16-bit-gem-set]16 bit Gem set[/url] by Its_Lerm[/center]
+[center][url=https://flippurgatory.itch.io/animated-potion-assets-pack-free]Animated Potion Assets Pack - FREE[/url] by Flip[/center]
+[center][url=https://anokolisa.itch.io/sidescroller-pixelart-sprites-asset-pack-forest-16x16]Free - Pixel Art Asset Pack - Sidescroller Fantasy - 16x16 Forest Sprites[/url] by Anokolisa[/center]
+[center][url=https://datagoblin.itch.io/monogram]monogram[/url] by datagoblin[/center]
+[center][url=https://ovanisound.com/products/fantasy-music-pack-vol-4]Fantasy Music Pack Vol. 4[/url] by Ovani Sound[/center]"
+fit_content = true
+
+[node name="Return" type="Button" parent="Credits/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "MENU_RETURN"
+
+[connection signal="pressed" from="Menu/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ParametersButton" to="." method="_on_parameters_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="value_changed" from="Parameters/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="toggled" from="Parameters/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MusicCheckBox" to="." method="_on_music_check_box_toggled"]
+[connection signal="pressed" from="Parameters/PanelContainer/MarginContainer/VBoxContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="meta_clicked" from="Credits/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="Credits/PanelContainer/MarginContainer/VBoxContainer/Return" to="." method="_on_return_pressed"]
