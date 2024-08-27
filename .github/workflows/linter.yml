@@ -17,4 +17,4 @@ jobs:
         run: pip3 install "gdtoolkit==4.*"
 
       - name: Run the linter
-        run: gdlint *.gd
+        run: gdlint **.gd
