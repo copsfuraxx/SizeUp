@@ -20,7 +20,7 @@ func  _physics_process(delta: float) -> void:
 		if player.velocity.y >= .0:
 			player.change_state("FallState")
 			return
-		elif is_jumping:
+		if is_jumping:
 			player.velocity += player.get_gravity() * 0.25 * delta
 		else:
 			player.velocity += player.get_gravity() * delta
