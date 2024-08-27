@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,4 +17,4 @@ jobs:
         run: pip3 install "gdtoolkit==4.*"
 
       - name: Run the linter
-        run: gdlint **.gd
+        run: gdlint $(find . -name '*.gd')
