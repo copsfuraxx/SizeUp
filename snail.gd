@@ -4,13 +4,13 @@ extends Area2D
 const SPEED = 50.0
 
 
-var dest : Vector2
-
-
 @export
 var start : Marker2D
 @export
 var end : Marker2D
+
+
+var dest : Vector2
 
 
 func _ready() -> void:

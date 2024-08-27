@@ -8,15 +8,18 @@ var parameters: Control = $Parameters
 @onready
 var credits: Control = $Credits
 @onready
-var music_slider: Slider = $Parameters/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MusicSlider
+var music_slider: Slider =\
+	$Parameters/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MusicSlider
 @onready
-var music_checkbox: CheckButton = $Parameters/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MusicCheckBox
+var music_checkbox: CheckButton =\
+	$Parameters/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MusicCheckBox
 
 func  _ready() -> void:
 	MusicHandler.play_music(preload("res://Fantasy Vol4 Music Pack/Fantasy Vol4 Seasonal Main.wav"))
 	music_slider.value = db_to_linear(MusicHandler.volume_db) * 100
 	music_checkbox.button_pressed = MusicHandler.is_mute
-	$Credits/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel.custom_minimum_size.x = get_viewport_rect().size.x / 4.0 * 3.0
+	$Credits/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel.custom_minimum_size.x =\
+		get_viewport_rect().size.x / 4.0 * 3.0
 
 
 func _on_play_button_pressed() -> void:

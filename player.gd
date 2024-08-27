@@ -15,9 +15,9 @@ var animation : AnimatedSprite2D = $AnimatedSprite2D
 @onready
 var shape : CollisionShape2D = $CollisionShape2D
 @onready
-var rayTop : RayCast2D = $RayCastTop
+var ray_top : RayCast2D = $RayCastTop
 @onready
-var rayBottom : RayCast2D = $RayCastBottom
+var ray_bottom : RayCast2D = $RayCastBottom
 @onready
 var init_size : Vector2 = shape.shape.size
 
@@ -46,7 +46,7 @@ func move() -> void:
 
 
 func change_size(value := 0.1) -> void :
-	if rayTop.is_colliding() and rayBottom.is_colliding():
+	if ray_top.is_colliding() and ray_bottom.is_colliding():
 		BusSignal.player_died.emit()
 	var new_scale := animation.scale + Vector2(value, value)
 	if new_scale.x >= 5.0:
@@ -54,8 +54,8 @@ func change_size(value := 0.1) -> void :
 	animation.scale = new_scale.maxf(0.5)
 	shape.shape.size = init_size * animation.scale
 	var h : float = shape.shape.size.y / 2.0
-	rayTop.position.y = shape.position.y - h
-	rayBottom.position.y = shape.position.y + h
+	ray_top.position.y = shape.position.y - h
+	ray_bottom.position.y = shape.position.y + h
 	BusSignal.player_size_changed.emit(animation.scale.x)
 
 
