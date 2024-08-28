@@ -6,8 +6,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
 
 
-@warning_ignore("untyped_declaration")
-var state
+@export
+var _state : State
 
 
 @onready
@@ -25,24 +25,13 @@ var init_size : Vector2 = shape.shape.size
 func _ready() -> void:
 	for child in $States.get_children():
 		child.player = self
-	state = $States/IdleState
-	state.enter_state()
+	_state._enter_state()
 
 
 func change_state(new_state : String) -> void:
-	state.exit_state()
-	state = get_node("States/" + new_state)
-	state.enter_state()
-
-
-func move() -> void:
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-		animation.flip_h = direction < 0
-	else :
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	move_and_slide()
+	_state._exit_state()
+	_state = get_node("States/" + new_state)
+	_state._enter_state()
 
 
 func change_size(value := 0.1) -> void :
@@ -67,3 +56,13 @@ func take_hit(monster : Node2D) -> void:
 		change_state("KnockBackState")
 	else:
 		monster.die.call_deferred()
+
+
+func _move() -> void:
+	var direction := Input.get_axis("move_left", "move_right")
+	if direction:
+		velocity.x = direction * SPEED
+		animation.flip_h = direction < 0
+	else :
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	move_and_slide()

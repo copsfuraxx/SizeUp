@@ -32,10 +32,7 @@ func has_reach_dest(old_position : Vector2) -> bool:
 	return (old_position < dest and position >= dest) or (old_position > dest && position <= dest)
 
 
-func _on_body_entered(body: Node2D) -> void:
-	if body is not Player:
-		return
-	var player : Player = body
+func _on_body_entered(player: Player) -> void:
 	player.take_hit(self)
 
 

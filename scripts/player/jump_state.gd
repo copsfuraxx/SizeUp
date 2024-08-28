@@ -1,21 +1,17 @@
-extends Node
+extends State
 
 
-var player : Player
 var is_jumping := false
 var is_gonna_jump := false
 var jump_time : float
+var cast_time : float
 
 
 @onready
 var jump_timer : Timer = $JumpTimer
 
 
-func _ready() -> void:
-	exit_state()
-
-
-func  _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not player.is_on_floor():
 		if player.velocity.y >= .0:
 			player.change_state("FallState")
@@ -31,8 +27,14 @@ func  _physics_process(delta: float) -> void:
 		else:
 			jump_time += delta
 
+	if is_gonna_jump:
+		if cast_time < 0.1 && not Input.is_action_pressed("jump"):
+			jump_timer.stop()
+			player.animation.frame = 2
+			_on_jump_timer_timeout()
+
 	if not is_gonna_jump:
-		player.move()
+		player._move()
 	else:
 		player.velocity.x = .0
 		player.move_and_slide()
@@ -44,7 +46,7 @@ func _on_jump_timer_timeout() -> void:
 	is_jumping = true
 
 
-func  enter_state() -> void:
+func _enter_state() -> void:
 	player.animation.play("jump")
 	player.animation.frame = 0
 	set_physics_process(true)
@@ -54,6 +56,6 @@ func  enter_state() -> void:
 	jump_time = .0
 
 
-func  exit_state() -> void:
+func _exit_state() -> void:
 	$JumpTimer.stop()
 	set_physics_process(false)

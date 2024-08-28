@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://5e1ookcth5pa"]
+[gd_scene load_steps=7 format=3 uid="uid://5e1ookcth5pa"]
 
 [ext_resource type="PackedScene" uid="uid://b0io7n5ovan0p" path="res://scenes/player.tscn" id="1_5vakj"]
 [ext_resource type="PackedScene" uid="uid://c74ljjsfj0x2c" path="res://scenes/niveau1.tscn" id="1_k76t2"]
@@ -8,9 +8,6 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ivr0h"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_35lwp"]
-normal = Vector2(0, 1)
-
 [node name="Test" type="Node2D"]
 
 [node name="WorldBound" type="StaticBody2D" parent="."]
@@ -19,11 +16,6 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBound"]
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_ivr0h")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBound"]
-position = Vector2(2402, 0)
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_35lwp")
 
 [node name="TileMap" parent="." instance=ExtResource("1_k76t2")]
 

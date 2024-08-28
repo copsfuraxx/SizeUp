@@ -14,8 +14,8 @@ var player : Player = $"../Player"
 
 func _ready() -> void:
 	get_tree().paused = true
-	var music := preload("res://assets/Fantasy Vol4 Music Pack/Fantasy Vol4 Hopeful Main.wav")
-	MusicHandler.play_music(music)
+	const Music := preload("res://assets/Fantasy Vol4 Music Pack/Fantasy Vol4 Hopeful Main.wav")
+	MusicHandler.play_music(Music)
 	BusSignal.gem_collected.connect(on_gem_collected)
 	BusSignal.player_died.connect(on_player_died)
 	var key_number_link := "[img]res://assets/Keyboard/%d.png[/img]"

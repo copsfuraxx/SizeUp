@@ -1,14 +1,7 @@
-extends Node
+extends State
 
 
-var player : Player
-
-
-func _ready() -> void:
-	exit_state()
-
-
-func  _physics_process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not player.is_on_floor():
 		player.change_state("FallState")
 		return
@@ -24,10 +17,10 @@ func  _physics_process(_delta: float) -> void:
 		player.change_state("IdleState")
 
 
-func  enter_state() -> void:
+func _enter_state() -> void:
 	player.animation.play("run")
 	set_physics_process(true)
 
 
-func  exit_state() -> void:
+func _exit_state() -> void:
 	set_physics_process(false)

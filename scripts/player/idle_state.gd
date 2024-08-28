@@ -1,11 +1,4 @@
-extends Node
-
-
-var player : Player
-
-
-func  _ready() -> void:
-	exit_state()
+extends State
 
 
 func _physics_process(_delta: float) -> void:
@@ -22,10 +15,10 @@ func _physics_process(_delta: float) -> void:
 	player.move_and_slide()
 
 
-func  enter_state() -> void:
+func _enter_state() -> void:
 	player.animation.play("idle")
 	set_physics_process(true)
 
 
-func  exit_state() -> void:
+func _exit_state() -> void:
 	set_physics_process(false)

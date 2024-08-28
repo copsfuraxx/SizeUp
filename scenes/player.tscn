@@ -169,9 +169,10 @@ animations = [{
 resource_local_to_scene = true
 size = Vector2(20, 48)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_state")]
 collision_mask = 14
 script = ExtResource("1_1435h")
+_state = NodePath("States/IdleState")
 
 [node name="States" type="Node" parent="."]
 

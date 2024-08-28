@@ -1,13 +1,8 @@
-extends Node
+extends State
 
 
-var player : Player
 var velocity : Vector2
 var knock_back_timer : float
-
-
-func  _ready() -> void:
-	exit_state()
 
 
 func _physics_process(delta: float) -> void:
@@ -23,11 +18,11 @@ func _physics_process(delta: float) -> void:
 	player.move_and_slide()
 
 
-func  enter_state() -> void:
+func _enter_state() -> void:
 	player.animation.play("knock_back")
 	knock_back_timer = .0
 	set_physics_process(true)
 
 
-func  exit_state() -> void:
+func _exit_state() -> void:
 	set_physics_process(false)

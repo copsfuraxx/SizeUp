@@ -8,8 +8,8 @@ var player : Player = $"../Player"
 func _ready() -> void:
 	BusSignal.gem_collected.connect(on_gem_collected)
 	BusSignal.player_died.connect(on_player_died)
-	var music := preload("res://assets/Fantasy Vol4 Music Pack/Fantasy Vol4 New World Main.wav")
-	MusicHandler.play_music(music)
+	const Music := preload("res://assets/Fantasy Vol4 Music Pack/Fantasy Vol4 New World Main.wav")
+	MusicHandler.play_music(Music)
 
 
 func _input(event: InputEvent) -> void:

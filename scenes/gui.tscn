@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://xpqwcyx42dvk"]
+[gd_scene load_steps=7 format=3 uid="uid://xpqwcyx42dvk"]
 
 [ext_resource type="Theme" uid="uid://cwd5warj7yjkx" path="res://theme.tres" id="1_5uj6q"]
 [ext_resource type="Texture2D" uid="uid://dfs31wo1ykoce" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="2_aueqi"]
 [ext_resource type="Script" path="res://scripts/ui/gui.gd" id="2_u4qg1"]
+[ext_resource type="PackedScene" uid="uid://q8co3rvx2rhh" path="res://scenes/parameters.tscn" id="4_1bnbv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kecy3"]
 atlas = ExtResource("2_aueqi")
@@ -75,26 +76,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="PauseScreen"]
+[node name="Menu" type="CenterContainer" parent="PauseScreen"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen/Menu"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Play" type="Button" parent="PauseScreen/CenterContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="PauseScreen/Menu/VBoxContainer"]
 layout_mode = 2
 text = "PLAY"
 
-[node name="Retry" type="Button" parent="PauseScreen/CenterContainer/VBoxContainer"]
+[node name="Retry" type="Button" parent="PauseScreen/Menu/VBoxContainer"]
 layout_mode = 2
 text = "RETRY"
 
-[node name="Menu" type="Button" parent="PauseScreen/CenterContainer/VBoxContainer"]
+[node name="ParametersButton" type="Button" parent="PauseScreen/Menu/VBoxContainer"]
+layout_mode = 2
+text = "PARAM"
+
+[node name="Menu" type="Button" parent="PauseScreen/Menu/VBoxContainer"]
 layout_mode = 2
 text = "MENU_RETURN"
 
-[connection signal="pressed" from="PauseScreen/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="PauseScreen/CenterContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="PauseScreen/CenterContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[node name="Parameters" parent="PauseScreen" instance=ExtResource("4_1bnbv")]
+layout_mode = 2
+
+[connection signal="pressed" from="PauseScreen/Menu/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="PauseScreen/Menu/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="PauseScreen/Menu/VBoxContainer/ParametersButton" to="." method="_on_parameters_button_pressed"]
+[connection signal="pressed" from="PauseScreen/Menu/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="return_clicked" from="PauseScreen/Parameters" to="." method="_on_return_pressed"]

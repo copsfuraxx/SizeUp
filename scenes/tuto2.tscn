@@ -68,6 +68,4 @@ fit_content = true
 
 [node name="ParallaxBackground" parent="CanvasLayer" instance=ExtResource("5_lenci")]
 
-[connection signal="body_entered" from="TileMap/Main/Gem" to="TileMap/Main/Gem" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/Main/Potion" to="TileMap/Main/Potion" method="_on_body_entered"]
 [connection signal="timeout" from="TutoHandler/Timer" to="TutoHandler" method="_on_timer_timeout"]
